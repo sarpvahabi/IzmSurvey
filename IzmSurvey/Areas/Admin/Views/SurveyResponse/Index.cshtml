@@ -1,0 +1,53 @@
+﻿@using IzmSurvey.Models;
+@model IzmSurvey.Areas.Admin.ViewModels.SurveyResponseViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Survey Responses</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Response ID</th>   
+            @foreach (SurveyQuestion surveyQuestion in Model.CustomerSurvey.Questions)
+            {
+              <th scope="col">@surveyQuestion.Question</th>      
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CustomerSurveyResponse surveyResponse in Model.SurveyResponses)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => surveyResponse.Id)
+                </td>
+
+            @foreach (SurveyAnswer answer in surveyResponse.Answers)
+            {
+                <td>
+                @answer.Answer
+                </td>
+            }
+            </tr>
+        }
+    </tbody>
+      
+ 
+  
+
+
+
+
+
+
+  
+</table>
+   
+
+
+</div>
+
+
